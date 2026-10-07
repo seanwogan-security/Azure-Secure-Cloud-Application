@@ -4,6 +4,8 @@ A cloud security project built on Microsoft Azure to design, deploy, and secure 
 
 The environment combined an Ubuntu Linux virtual machine, Flask web application, Azure SQL Database, virtual networking, and multiple security controls across the network, operating system, database, and application layers.
 
+**Technologies:** Microsoft Azure, Ubuntu Linux, Flask, Azure SQL, Network Security Groups, UFW, Fail2Ban, SSH, TLS/HTTPS, Bash, Azure RBAC, Private Endpoints, systemd-journald, rsyslog
+
 ## Project Overview
 
 The project was based around a fictional company scenario called **Techstart Solutions**.
@@ -35,6 +37,8 @@ Allowed ports included:
 
 All unnecessary inbound traffic was denied.
 
+![Azure Network Security Group rules](screenshots/azure-nsg-rules.png)
+
 ### UFW Firewall
 
 A host-based UFW firewall was configured on the Ubuntu virtual machine.
@@ -43,11 +47,15 @@ A default-deny approach was used, with only required ports explicitly allowed.
 
 This provided an additional layer of protection alongside Azure NSGs.
 
+![UFW firewall configuration](screenshots/ufw-firewall.png)
+
 ### SSH Hardening
 
 Password-based SSH authentication was disabled and replaced with key-based authentication.
 
 This reduced exposure to password-based brute-force and credential attacks.
+
+![SSH key-based authentication configuration](screenshots/ssh-hardening.png)
 
 ### Fail2Ban
 
@@ -55,11 +63,15 @@ Fail2Ban was installed and configured to monitor authentication logs and automat
 
 This added host-based protection against automated brute-force attacks.
 
+![Fail2Ban SSH brute-force protection](screenshots/fail2ban.png)
+
 ### HTTPS and TLS
 
 A self-signed TLS certificate was generated and configured within the Flask application.
 
 HTTPS was enabled to protect login credentials and application traffic in transit.
+
+![Flask TLS configuration](screenshots/flask-tls.png)
 
 ### Azure SQL Security
 
@@ -72,6 +84,8 @@ Security controls included:
 - Limited permissions for application users
 - Private endpoint access
 - Restricted public exposure
+
+![Azure SQL private endpoint configuration](screenshots/sql-private-endpoint.png)
 
 ### Private Endpoints
 
@@ -87,6 +101,10 @@ Linux logging was configured using:
 - `rsyslog`
 
 These were used to capture authentication events, service activity, and other security-relevant logs.
+
+![System logging and authentication events](screenshots/system-logging-1.png)
+
+![Additional system logging output](screenshots/system-logging-2.png)
 
 ### Automated Backups
 
@@ -162,9 +180,9 @@ These issues were resolved through testing, firewall configuration, DNS checks, 
 
 ## Project Documentation
 
-The full project report is included in the `docs` directory.
+The full project report is available in the [Docs directory](Docs/Report_Azure_Secure_Cloud_App_Sean_Wogan.pdf).
 
-Screenshots of the Azure environment and implemented security controls are included in the `screenshots` directory.
+Additional screenshots of the Azure environment and implemented security controls are available in the `screenshots` directory.
 
 ## What I Learned
 
