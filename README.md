@@ -23,6 +23,20 @@ The main components included:
 - Private endpoints
 - Azure RBAC
 
+## My Contribution
+
+I deployed a Flask web application on an Ubuntu VM in Azure and configured
+security controls across the network, host and database. I used Azure Network
+Security Groups and UFW to restrict inbound traffic, configured SSH key
+authentication and Fail2Ban, and enabled HTTPS with a self-signed certificate
+for the lab. I also configured a private endpoint for Azure SQL.
+
+## Validation
+
+I checked DNS resolution and network connectivity from the Ubuntu VM while
+troubleshooting access to Azure SQL. The screenshots below document the
+network security rules, host firewall, SSH configuration and SQL private endpoint.
+
 ## Security Controls Implemented
 
 ### Network Security Groups
